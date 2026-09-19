@@ -13,7 +13,4 @@ app.add_middleware(
 
 @app.get("/api/status", status_code=status.HTTP_200_OK)
 def root():
-    return {"status": "ok",
-            "message": "backend is running",
-            "service" : "FastAPI"
-    }
+    return {"message": "backend is running"}
