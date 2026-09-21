@@ -24,6 +24,15 @@
       <br>
       <button id="myBtn">Check Server Status</button>
       <p id="dis"> </p>   
+      
+      <div id="numberAdd">
+        <input type="text" id="number1" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Numbers only..."> 
+        <h2 id="plus"> + </h2>    
+        <input type="text" id="number2" oninput="this.value = this.value.replace(/[^0-9]/g, '')" placeholder="Numbers only...">
+        <button id="addBtn"> Add </button>
+        <p id="disTotal"> </p>
+      </div>    
+      
       <hr>
       <p id="footer">Built by Umar - Learning by Building</p>
       <script src="script.js"></script>

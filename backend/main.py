@@ -1,5 +1,6 @@
 from fastapi import FastAPI, status
 from fastapi.middleware.cors import CORSMiddleware
+from pydantic.main import BaseModel
 
 app = FastAPI()
 
@@ -11,6 +12,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/api/status", status_code=status.HTTP_200_OK)
+@app.get("/status", status_code=status.HTTP_404_NOT_FOUND)
 def root():
     return {"message": "backend is running"}
+    
+class calculateRequest(BaseModel):
+    num1 : int
+    num2 : int
+
+@app.post("/calculator", status_code=status.HTTP_200_OK)
+def cal(payload : calculateRequest):
+    result = payload.num1 + payload.num2
+    return {"result": result}
+      

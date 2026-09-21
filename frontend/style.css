@@ -1,34 +1,243 @@
-*{
-    background-color: #2c3227;
-    color: white;
-}
-h1{
-    text-align: center;
-    text-shadow: 2rem;
-}
-#bodypara{
-    text-align: center;
-    font-size: 20px;
-}
-#doc{
-    font-size: 20px;
-}
-a{
-    color: #66b2ff;
-    text-shadow: 0;
-    font-weight: 10px; 
+:root {
+  --bg: #1e2320;
+  --surface: #2a302b;
+  --surface-2: #343b35;
+  --border: #3d463f;
+  --text: #f1f3ef;
+  --muted: #a3ada5;
+  --accent: #7dd3a8;
+  --accent-hover: #9be3bd;
+  --radius: 12px;
 }
 
-button{
-    cursor: pointer;
-    left: 42%;
-    position: relative;
-    padding: 1%;
-    font-size: 20px;
-    border-radius: 10px;
-    background-color: white;
-    color: black;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-#dis{
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 48px;
+}
+
+/* Keep everything at a readable width */
+body > * {
+  max-width: 640px;
+  width: 100%;
+}
+
+/* Main heading */
+h1 {
+  margin-top: 32px;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+/* Introduction */
+#bodypara {
+  margin: 16px 0 8px;
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+ul {
+  margin: 24px 0;
+  padding-left: 24px;
+  color: var(--text);
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+#doc {
+  margin: 16px 0;
+  font-size: 1rem;
+  color: var(--muted);
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+  border-bottom-color: var(--accent-hover);
+}
+
+/* Server status button */
+#myBtn {
+  cursor: pointer;
+  align-self: center;
+  width: auto;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 600;
+
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #10231a;
+
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+#myBtn:hover {
+  background: var(--accent-hover);
+}
+
+#myBtn:active {
+  transform: scale(0.98);
+}
+
+#dis {
+  margin: 16px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Calculator */
+#numberAdd {
+  margin-top: 32px;
+  padding: 32px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  color: var(--text);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+#numberAdd input {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+
+  background: var(--surface-2);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#numberAdd input::placeholder {
+  color: var(--muted);
+}
+
+#numberAdd input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(125, 211, 168, 0.2);
+}
+
+#calculateBtn {
+  cursor: pointer;
+  align-self: center;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+
+  border: none;
+  border-radius: var(--radius);
+  background: var(--accent);
+  color: #10231a;
+
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+
+#calculateBtn:hover {
+  background: var(--accent-hover);
+}
+
+#calculateBtn:active {
+  transform: scale(0.98);
+}
+
+#disTotal {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+#plus {
     text-align: center;
+}
+
+#addBtn{
+    cursor: pointer;
+    align-self: center;
+    width: auto;
+    margin-top: 20px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+  
+    border: none;
+    border-radius: var(--radius);
+    background: var(--accent);
+    color: #10231a;
+  
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+#addBtn:hover {
+  background: var(--accent-hover);
+}
+
+#addBtn:active {
+  transform: scale(0.98);
+}
+
+#disTotal {
+  margin: 16px 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Footer */
+#footer {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  #numberAdd {
+    padding: 22px;
+  }
 }
