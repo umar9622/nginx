@@ -15,13 +15,12 @@ app.add_middleware(
 @app.get("/status", status_code=status.HTTP_404_NOT_FOUND)
 def root():
     return {"message": "backend is running"}
-    
+
 class calculateRequest(BaseModel):
     num1 : int
     num2 : int
 
-@app.post("/calculator", status_code=status.HTTP_200_OK)
+@app.post("/calculator")
 def cal(payload : calculateRequest):
     result = payload.num1 + payload.num2
     return {"result": result}
-      
